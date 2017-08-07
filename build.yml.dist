@@ -7,9 +7,11 @@ composer_bin: "/usr/local/bin/composer"
 #注册key
 auth_key: '.gKZBMCg]>(Qrs,M@u&xnw~"^*tTtFy@LHjkjo-_/H.~Vn~+R<StPuV~(J%]ewdz'
 
-#环境配置
+#系统配置
 app_debug: true # 定义了.env文件后，配置文件中定义app_debug参数无效。
 app_trace: true # 开启应用Trace调试
+env_pre: nf_
+session_table: admin_session #session存储表名
 
 # 全局配置
 global:
@@ -25,6 +27,15 @@ mysql:
     password: 
     hostport: 3306
     prefix: nf_
+
+# 邮件服务器
+email:
+    smtp_host: smtp.qq.com  # SMTP 服务器
+    smtp_port: 465  # SMTP 服务器的端口号
+    smtp_user: xxx@qq.com  # SMTP 服务器用户名
+    smtp_pass: bleammqirwozbgbc?xxx  # SMTP 服务器密码
+    from_email: xxx@qq.com  # SMTP 服务器
+    from_name: Neconano  # SMTP 服务器
 
 # CND资源转换配置
 feature:
