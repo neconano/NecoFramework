@@ -1,0 +1,70 @@
+# 使用docker构建
+# image: tetraweb/php:5.6
+# image: registry.cn-qingdao.aliyuncs.com/neco/neco-framework
+
+cache:
+    paths:
+        - vendor/
+#         - build/vendor
+variables:
+    DEPLOY_ENVIRONMENT: ${CI_COMMIT_REF_NAME}
+
+stages:
+    - build
+    - deploy
+
+before_script:
+    - cp build.yml.dist build.yml
+    - composer install --prefer-dist --no-plugins --no-scripts --ignore-platform-reqs
+
+build_master:
+    stage: build
+    tags:
+        - neco-framework
+    only:
+        - master
+    script:
+        - export APP_DEBUG=false
+        - vendor/bin/phing -f ./build.xml
+    environment:
+        name: neco-framework
+        url: http://www.nf.u16
+
+deploy_master:
+    stage: deploy
+    tags:
+        - neco-framework
+    only:
+        - master
+    script:
+        - vendor/bin/phing -f ./build.xml ci-deploy
+    environment:
+        name: neco-framework
+        url: http://www.nf.u16
+
+
+
+
+
+# deploy_develop:
+#     stage: deploy
+#     tags:
+#         - jiemo_test
+#     only:
+#         - develop
+#     script:
+#         - export IS_FUNCTION_MODEL=1
+#         - export APP_DEBUG=true
+#         - vendor/bin/phing ci-deploy
+#     environment:
+#         name: develop_jiemodou_net
+#         url: https://www.jiemodou.net
+#
+#http://www.gitlab.u16/
+#http://10.10.7.101/
+#6QEj_WZ7Mh5WGa4eCdSr
+#neco-framework
+#
+#
+#aliyun token
+#zp64QfddShRPFrwd3sEo

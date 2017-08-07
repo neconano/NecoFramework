@@ -1,0 +1,41 @@
+# 发布配置
+release_branch: master
+release_dir: /home/www/www.nf.u16
+php_bin: "/usr/bin/php"
+composer_bin: "/usr/local/bin/composer"
+
+#注册key
+auth_key: '.gKZBMCg]>(Qrs,M@u&xnw~"^*tTtFy@LHjkjo-_/H.~Vn~+R<StPuV~(J%]ewdz'
+
+#环境配置
+app_debug: true # 定义了.env文件后，配置文件中定义app_debug参数无效。
+app_trace: true # 开启应用Trace调试
+
+# 全局配置
+global:
+    DOMAIN: "nf.com"
+    CDN_DIR: "public/cdn" # 压缩生成用于CDN资源，目标目录
+    PRE2CDN_DIR: "public/cdn-ready" # 源目录
+
+# 数据库配置
+mysql:
+    hostname: 127.0.0.1
+    database: neco_framework
+    username: root
+    password: 
+    hostport: 3306
+    prefix: nf_
+
+# CND资源转换配置
+feature:
+    hash_assets: true # 是否开启文件名称hash化
+    minify_css: true # 是否开启css文件压缩
+    minify_js: true # 是否开启js压缩
+    minify_html: false # 是否开启html美化
+
+# URL 配置
+url:
+    CDN_DOMAIN: "http://cdn.${global.DOMAIN}" # cdn域名
+    PUB_DOMAIN: "http://pub.${global.DOMAIN}" # 资源域名
+    ULS_DOMAIN: "http://uls.${global.DOMAIN}" # 上传域名
+    ADN_DOMAIN: "http://adn.${global.DOMAIN}" # 插件域名

@@ -1,0 +1,11 @@
+.p_title{font-size: 25px;text-align: center;}
+.p_tools{max-width: 1000px;margin: auto;height: 40px;}
+.p_tools *{float: right;}
+table{margin: auto;}
+tr:nth-child(2n+1){background-color: #DDD;}
+table th{background-color: #00a2ff;color: #fff;min-width: 100px;padding: 5px 10px;}
+table td{padding: 5px 10px;font-size: 12px;}
+table.form td{line-height: 25px; min-width: 300px;}
+table.form tr td:first-child{text-align: right;}
+.text_right{text-align: right;}
+.red{color: red;}

@@ -1,0 +1,148 @@
+<extend name="$_home_public_layout"/>
+
+<block name="title"><title>{:C('WEB_SITE_TITLE')}－{:C('WEB_SITE_SLOGAN')}</title></block>
+
+<block name="jumbotron">
+    <div id="index-carousel" class="carousel slide" data-ride="carousel" >
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <nf:slider_list name="slider">
+                <div class="item <php> if($i==1) echo 'active';</php>">
+                    <a href="{$slider.url}"><img src="{$slider.cover|get_cover}"></a>
+                </div>
+            </nf:slider_list>
+            <?php if(!$__slider_list__): ?>
+                <div class="item active">
+                    <div class="jumbotron jumbotron-primary jumbotron-background section-feature-slider opencmf">
+                        <div class="container">
+                            <div>
+                                <h1 class="title">
+                                    {:C('WEB_SITE_TITLE')}
+                                </h1>
+                            </div>
+                            <p class="abstract">
+                                {:C('WEB_SITE_DESCRIPTION')}
+                            </p>
+                            <div class="action">
+                                <a class="btn btn-default btn-pill" target="_blank" href="https://github.com" ><i class="fa fa-download"></i> 立即下载</a>
+                                <a class="btn btn-default btn-pill" target="_blank" href="https://github.com"><i class="fa fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="jumbotron jumbotron-primary jumbotron-background section-feature-slider">
+                        <div class="container">
+                            <h3 class="text-center">优秀特性</h3>
+                            <div class="row feature-list">
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-cubes fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">模块化、插件化</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-hourglass-1 fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">全系列Builder一键生成</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-flash fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">基于ThinkPHP5</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-desktop fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">全兼容Bootstrap3.3.5</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-users fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">多用户后台支持</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-tablet fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">多终端响应式支持</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-adjust fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">代码全面优化</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-book fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">GitLab远程部署</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-server fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">资源CDN自动化</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-circle-o-notch fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">Phing自动化生成</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="thumbnail text-center">
+                                        <div class="cover"><span class="fa fa-heart fa-5x"></span></div>
+                                        <div class="caption">
+                                            <h4 class="text-center">Composer支持</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- 幻灯片导航 -->
+        <ol class="carousel-indicators">
+            <nf:slider_list name="slider">
+                <li class="<php> if($i==1) echo 'active';</php>" data-target="#index-carousel" data-slide-to="<?php echo $i-1; ?>"></li>
+            </nf:slider_list>
+            <?php if(!$__slider_list__): ?>
+                <li data-target="#index-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#index-carousel" data-slide-to="1"></li>
+            <?php endif; ?>
+        </ol>
+
+        <!-- 左右切换按钮 -->
+        <a class="left carousel-control hidden-xs" href="#index-carousel" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+        <a class="right carousel-control hidden-xs" href="#index-carousel" data-slide="next"><span class="fa fa-chevron-right"></span></a>
+    </div>
+</block>

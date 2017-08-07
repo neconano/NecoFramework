@@ -1,0 +1,7 @@
+/runtime/
+/vendor/
+/build/
+/uploads/
+
+.env
+build.yml
