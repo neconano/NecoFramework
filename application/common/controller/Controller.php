@@ -36,7 +36,7 @@ class Controller extends \think\Controller
      * 模板显示 调用内置的模板引擎显示方法
      * @return void
      */
-    protected function display($template = '', $vars = [], $replace = [], $config = [])
+    protected function display($template = '', $config = [])
     {
         if (!is_file($template)) {
             $depr = C('template.view_depr');
@@ -67,7 +67,8 @@ class Controller extends \think\Controller
         $this->assign('_user_center_side', C('USER_CENTER_SIDE'));      // 用户中心侧边
         $this->assign('_user_login_modal', C('USER_LOGIN_MODAL'));      // 用户登录弹窗
 
-        $this->assign('_listbuilder_layout', C('LISTBUILDER_LAYOUT')); // ListBuilder继承模版
+        // 与setTemplate()一同使用
+        $this->assign('_listbuilder_layout', $config['_listbuilder_layout'] ?:C('LISTBUILDER_LAYOUT') ); // ListBuilder继承模版
         $this->assign('_formbuilder_layout', C('FORMBUILDER_LAYOUT')); // FormBuilder继承模版
         $this->assign('_stylebuilder_layout', C('STYLEBUILDER_LAYOUT'));
         $this->assign('_scriptbuilder_layout', C('SCRIPTBUILDER_LAYOUT'));
