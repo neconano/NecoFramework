@@ -166,7 +166,7 @@ class Controller extends \think\Controller
             $model = $this->_db_model ? $this->_db_model : request()->controller();
         }
 
-        $ids    = array_unique((array) I('ids', 0));
+        $ids    = array_unique((array) I('ids/a', 0));
         $status = I('status');
         if (empty($ids)) {
             $this->error('请选择要操作的数据');
