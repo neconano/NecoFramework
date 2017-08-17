@@ -323,6 +323,7 @@ class AdminUpload extends Model3
 
         // 获取出文件数组
         $reay_file = array_shift($_FILES);
+        $domain = Env::get("url_uls_domain")?: $_SERVER['REQUEST_SCHEME'] .'://'.$_SERVER['HTTP_HOST'];
 
         // 计算文件散列以查看是否已有相同文件上传过
         if (!isset($_GET['temp'])) {
@@ -334,7 +335,7 @@ class AdminUpload extends Model3
                 // 发现相同文件直接返回
                 $return['id']   = $upload['id'];
                 $return['name'] = $upload['name'];
-                $return['url']  = $upload['url'];
+                $return['url']  = $domain . $upload['url'];
                 $return['path'] = '.' . $upload['path'];
                 return $return;
             }
@@ -389,7 +390,7 @@ class AdminUpload extends Model3
                         if (isset($info["url"])) {
                             $return['url'] = $upload_data['url'];
                         } else {
-                            $return['url'] = Env::get("url_uls_domain") . $upload_data['path'];
+                            $return['url'] = $domain . $upload_data['path'];
                         }
                         $return['path'] = '.' . $upload_data['path'];
                         $return['name'] = $upload_data['name'];
