@@ -44,6 +44,8 @@ class Controller extends \think\Controller
                 // 如果模板文件名为空 按照默认规则定位
                 $template = request()->controller() . $depr . request()->action();
             } elseif (false === strpos($template, $depr)) {
+                // 兼容widos和linux
+                if(false === strpos($template, '/'))
                 $template = request()->controller() . $depr . $template;
             }
         } else {
