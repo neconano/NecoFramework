@@ -233,14 +233,14 @@ class Module extends Admin
     {
         $module_object = D2('AdminModule');
         $name          = $module_object->getFieldById($id, 'name');
-        $config_file   = realpath(APP_DIR . $name) . '/'
-        . D2('AdminModule')->install_file();
+        $config_file   = realpath(APP_DIR . strtolower($name) ) . '/' . D2('AdminModule')->install_file();
+        
         if (!$config_file) {
             $this->error('不存在安装文件');
         }
         $config_info = include $config_file;
         $data        = $config_info['info'];
-
+                
         // 读取数据库已有配置
         $db_moduel_config = D2('AdminModule')->getFieldByName($name, 'config');
         $db_moduel_config = json_decode($db_moduel_config, true);

@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/neconano/NecoPackage.git",
-                "reference": "5829d6b7eda2ab82648d6414ea84e94ceefd6fa5"
+                "reference": "fb458d9f3da415293e6939978e9197d6e39516e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/neconano/NecoPackage/5829d6b7eda2ab82648d6414ea84e94ceefd6fa5.zip",
-                "reference": "5829d6b7eda2ab82648d6414ea84e94ceefd6fa5",
+                "url": "https://files.phpcomposer.com/files/neconano/NecoPackage/fb458d9f3da415293e6939978e9197d6e39516e7.zip",
+                "reference": "fb458d9f3da415293e6939978e9197d6e39516e7",
                 "shasum": ""
             },
             "require": {
@@ -41,7 +41,7 @@
                     "email": "you@example.com"
                 }
             ],
-            "time": "2017-08-04T09:12:11+00:00"
+            "time": "2017-08-17T07:11:48+00:00"
         },
         {
             "name": "phing/phing",
@@ -387,16 +387,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/f29dca382a6485c3cbe6379f0c61230167681937.zip",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+                "url": "https://files.phpcomposer.com/files/symfony/polyfill-mbstring/7c8fae0ac1d216eb54349e6a8baa57d515fe8803.zip",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -442,7 +442,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/yaml",
