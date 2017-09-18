@@ -75,7 +75,8 @@ class Controller extends \think\Controller
         $this->assign('_stylebuilder_layout', C('STYLEBUILDER_LAYOUT'));
         $this->assign('_scriptbuilder_layout', C('SCRIPTBUILDER_LAYOUT'));
         $this->assign('_builder_layout', C('BUILDER_LAYOUT'));
-
+        $this->assign('_builder_layout_ext', APP_PATH . strtolower(request()->module()) . '/view' );
+        
         // 导航处理
         if(S('admin_menu_mark') == 'admin_menu')
             $this->_admin_menu();

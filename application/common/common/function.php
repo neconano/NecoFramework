@@ -4,6 +4,7 @@ use neco\Tools\ConfigBag;
 use neco\String\Utils;
 use think\Env;
 
+require_once APP_DIR . 'common/common/business.php'; //业务函数
 require_once APP_DIR . 'common/common/developer.php'; //加载开发者二次开发公共函数库
 require_once APP_DIR . 'common/common/extra.php'; //加载兼容公共函数库
 
