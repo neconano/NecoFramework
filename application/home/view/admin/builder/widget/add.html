@@ -19,7 +19,7 @@
         <div class="form-group item_{$[type]form.name} {$[type]form.extra.class|default=''} course">
             <label class="left control-label">{$[type]form.title}：</label>
             <div class="right">
-                <php>foreach(API('Course')->search_category_index as $k => $v){</php>
+                <php>foreach(API('Debug')->search_category_index as $k => $v){</php>
                     <div class="radio-inline lyui-control lyui-radio">
                         <label for="target_blank{$k}">
                             <input type="radio" id="target_blank{$k}" class="radio" name="category" value="{$k}" data-val="{$k}">
@@ -31,11 +31,11 @@
             </div>
         </div>
 
-        <php>foreach(API('Course')->search_category_index as $k => $v){</php>
+        <php>foreach(API('Debug')->search_category_index as $k => $v){</php>
             <div class="erjiradio{$k} erjiradio" style="display:none">
                 <label class="left control-label"></label>
                 <div class="right">
-                    <php>foreach(API('Course')->search_category[$k] as $key => $vol){</php>
+                    <php>foreach(API('Debug')->search_category[$k] as $key => $vol){</php>
                     <div class="radio-inline lyui-control lyui-radio">
                         <label for="target{$k}-{$key}">
                             <input type="radio" id="target{$k}-{$key}" class="radio target{$k}_{$key}" name="erjiradio" value="{$key}">

@@ -144,9 +144,9 @@
                                             <?php if(isset($rb['type']) && $rb['type'] === 'dropdown'): ?>
                                             <div class="btn-group">
                                                 <button type="button" class="{$rb.class|default=''} dropdown-toggle" data-toggle="dropdown">
-                                                                    {$rb.title|default=''}
-                                                                    <span class="caret"></span>
-                                                                </button>
+                                                    {$rb.title|default=''}
+                                                    <span class="caret"></span>
+                                                </button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     <volist name="rb.dropdown" id="btn">
                                                         <li><a class="{$btn.class}|default=''" href="{$btn.href|default=''}">{$btn.title}</a></li>
@@ -164,8 +164,8 @@
                                                     <input type="hidden" name="id" value="{$data['id']}">
                                                     <input type="text" class="form-control" name="sort" value="{$data['sort']}">
                                                     <span class="input-group-btn">
-                                                            <button type="submit" class="btn btn-primary-outline btn-pill submit ajax-post no-refresh" target-form="form-remark{$data['id']}">提交</button>
-                                                          </span>
+                                                    <button type="submit" class="btn btn-primary-outline btn-pill submit ajax-post no-refresh" target-form="form-remark{$data['id']}">提交</button>
+                                                    </span>
                                                 </div><!-- /input-group -->
                                             </form>
                                             <php>}else{</php>

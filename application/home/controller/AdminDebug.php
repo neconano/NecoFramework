@@ -7,6 +7,11 @@ namespace app\home\controller;
 class AdminDebug extends Admin
 {
 
+    // 显示后台默认页
+    public function index(){
+        A("home/admin/index",'controller');
+    }
+
     public function bbb(){
         $this->display();
     }

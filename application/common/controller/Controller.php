@@ -71,7 +71,7 @@ class Controller extends \think\Controller
 
         // 与setTemplate()一同使用
         $this->assign('_listbuilder_layout', $config['_listbuilder_layout'] ?:C('LISTBUILDER_LAYOUT') ); // ListBuilder继承模版
-        $this->assign('_formbuilder_layout', C('FORMBUILDER_LAYOUT')); // FormBuilder继承模版
+        $this->assign('_formbuilder_layout', $config['_formbuilder_layout'] ?:C('FORMBUILDER_LAYOUT')); // FormBuilder继承模版
         $this->assign('_stylebuilder_layout', C('STYLEBUILDER_LAYOUT'));
         $this->assign('_scriptbuilder_layout', C('SCRIPTBUILDER_LAYOUT'));
         $this->assign('_builder_layout', C('BUILDER_LAYOUT'));

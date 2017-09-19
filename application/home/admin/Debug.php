@@ -51,7 +51,7 @@ class Debug extends Admin
         // 使用Builder快速建立列表页面。
         $builder = new \nfutil\builder\ListBuilder();
         // 设置搜索页
-        $listbuilder = APP_PATH . strtolower(request()->module()) . '/view/admin/'.strtolower(request()->controller()).'/'.strtolower(request()->action()).'.html';
+        $list_builder = APP_PATH . strtolower(request()->module()) . '/view/admin/'.strtolower(request()->controller()).'/'.strtolower(request()->action()).'_builder.html';
 
         // 设置最热按钮
         $hot['model']                   = 'dw_course_lesson';
@@ -100,7 +100,7 @@ class Debug extends Admin
             ->addRightButton('self',$hot)
             ->addRightButton('self',$new)
             ->setTemplate('builder/list')
-            ->display('',['_listbuilder_layout'=>$listbuilder]);
+            ->display('',['_listbuilder_layout'=>$list_builder]);
     }
 
     // 设置最热
@@ -116,6 +116,59 @@ class Debug extends Admin
         D2('Debug')->where($w)->save($data);
         $this->success('成功');
     }
+
+    /**
+     * 新增课程列表
+     */
+     public function add($id='')
+     {
+         $lesson = D2('Debug');
+         if ($this->request->isPost()){
+             $data=$this->request->Post();
+             $res= $lesson->do_add($data);
+             if ($res['status']){
+                 $this->success($res['msg'],'index');
+             }else{
+                 $this->error($res['msg']);
+             }
+         }else{
+             $res = $lesson->do_get($id);
+ 
+             // 使用FormBuilder快速建立表单页面
+             $builder = new \nfutil\builder\FormBuilder();
+             // 设置表单页
+             $form_builder = APP_PATH . strtolower(request()->module()) . '/view/admin/builder/formbuilder.html';
+             $builder->setMetaTitle('新增配置') //设置页面标题
+                 ->setPostUrl(U('add')) //设置表单提交地址
+                 ->addFormItem('id', 'hidden', 'ID', 'ID')
+                 ->addFormItem('title', 'text', '课程标题', '请输入标题')
+                 ->addFormItem('lesson_flag', 'text', '标签', '请输入标题')
+                 ->addFormItem('img_1', 'picture', '课程图片', '课程图片')
+                 ->addFormItem('description', 'text', '课程描叙', '请输入课程描叙')
+                 ->addFormItem('cost', 'text', '课程价格', '请输入课程价格')
+                 ->addFormItem('prime_cost', 'text', '课程原价', '请输入课程原价')
+                 ->addFormItem('total_hour', 'text', '课时总数', '请输入课时总数')
+                 ->addFormItem('suit_people', 'textarea', '适合人群', '请输入适合人群')
+                 ->addFormItem('feature', 'feature', '课程特色','' , $res['feature'])
+                 ->addFormItem('category', 'category', '课程分类')
+                 ->addFormItem('lesson_type', 'checkbox', '授课方式','', API('Debug')->lesson_type_index )
+                 ->addFormItem('end_time', 'text', '有效日期', '请输入有效日期')
+                 ->addFormItem('coures_content', 'kindeditor', '课程简介', '请输入课程简介')
+                 ->addFormItem('study_target', 'kindeditor', '学习目标', '请输入学习目标')
+                 ->addFormItem('book_1', 'picture', '推荐教材', '推荐教材')
+                 ->addFormItem('book_description', 'text', '推荐教材', '推荐教材')
+                 ->addFormItem('teacher', 'teacher', '授课老师', '', $res['teacher'])
+                 ->addFormItem('sort', 'text', '排序')
+                 ->setFormData($res['info'])
+                 ->setTemplate('builder/form')
+                 ->display('',['_formbuilder_layout'=>$form_builder]);
+         }
+ 
+     }
+ 
+
+
+
 
     public function yyy(){
         $this->display('bbb');

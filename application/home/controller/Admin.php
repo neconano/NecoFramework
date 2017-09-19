@@ -35,7 +35,7 @@ class Admin extends Controller
 
     // 显示后台默认页
     public function index(){
-        $this->display();
+        $this->display('admin/index');
     }
 
 
