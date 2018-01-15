@@ -24,7 +24,8 @@
         "websharks/css-minifier": "150820",
         "symfony/console": "~v3.3.4",
         "phpmailer/phpmailer": "~5.2",
-        "tedivm/jshrink": "~v1.2.0"
+        "tedivm/jshrink": "~v1.2.0",
+        "hooklife/thinkphp5-wechat": "^1.1"
     },
     "extra": {
         "think-path": "vendor/thinkphp"

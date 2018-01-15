@@ -48,7 +48,6 @@ if (is_file(ROOT_PATH . '.env')) {
     }
 }
 
-// lyf定义
 define('APP_DIR', APP_PATH );
 define('BUILDER_DIR', VENDOR_PATH . 'neconano/neco-package/NFUtil/builder/');
 define('IS_CGI', (0 === strpos(PHP_SAPI, 'cgi') || false !== strpos(PHP_SAPI, 'fcgi')) ? 1 : 0);

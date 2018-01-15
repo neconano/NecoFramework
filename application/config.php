@@ -321,10 +321,15 @@ if (is_file(CONF_PATH_COMMON.'properties.php')) {
     exit;
 }
 
+if (is_file(CONF_PATH_COMMON.'extra.php')) {
+    $extra_config = include CONF_PATH_COMMON.'extra.php';
+}
+
 // 返回合并的配置
 return array_merge(
     $_config, // 系统全局默认配置
     $db_config, // 数据库配置数组
     $properties_config, // 全局配置属性
+    $extra_config,
     include BUILDER_DIR . 'config.php' // 包含Builder配置
 );

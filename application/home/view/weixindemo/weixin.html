@@ -1,0 +1,62 @@
+﻿
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	
+	<script>
+	
+			wx.config({
+				debug: false,
+				appId: '<php>echo $signPackage["appId"];</php>',
+				timestamp: '<php>echo $signPackage["timestamp"];</php>',
+				nonceStr: '<php>echo $signPackage["nonceStr"];</php>',
+				signature: '<php>echo $signPackage["signature"];</php>',
+				jsApiList: [
+				'onMenuShareAppMessage',
+				'onMenuShareTimeline',
+				'onMenuShareQQ',
+				'onMenuShareQZone'
+				]
+			});
+		  wx.ready(function () {
+			var shareData = {
+				title: '麦凯乐开盒子！',
+				desc: '麦凯乐开盒子！', // 分享描述
+				link: 'http://mykal.zhuhemedia.com/nf/indexes/home/',
+				imgUrl: 'http://mykal.zhuhemedia.com/nf/public/cdn-ready/mykal/images/logo.jpg',
+				trigger: function (res) {
+				//不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+				},
+				success: function (res) {
+						$.ajax({
+						type: 'post',
+						url: 'http://mykal.zhuhemedia.com/nf/indexes/home/index.php',
+						dataType: 'json',
+						data:{'add_time':1,'openid':'{$openid}'},
+						success: function(data){
+						}
+						});
+				},
+				cancel: function (res) {
+				},
+				fail: function (res) {
+				  //alert(JSON.stringify(res));
+				}
+			};
+		  
+			// 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+			wx.onMenuShareTimeline(shareData);
+			// 用户点开右上角popup菜单后，点击分享给好友，会执行下面这个代码
+			wx.onMenuShareAppMessage(shareData);
+			// 分享到QQ
+			wx.onMenuShareQQ(shareData);
+			// 分享到QQ空间
+			wx.onMenuShareQZone(shareData);
+		  });
+		  
+		  wx.error(function (res) {
+			//alert(res.errMsg);
+		  });
+
+		</script>
+		
+	
+	
