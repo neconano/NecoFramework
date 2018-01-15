@@ -27,9 +27,9 @@ return array (
   array (
     'smtp_host' => 'smtp.qq.com',
     'smtp_port' => 465,
-    'smtp_user' => '308715744@qq.com',
-    'smtp_pass' => 'bleammqirwozbgbc',
-    'from_email' => '308715744@qq.com',
+    'smtp_user' => 'xxx@qq.com',
+    'smtp_pass' => 'bleammqirwozbgbc?xxx',
+    'from_email' => 'xxx@qq.com',
     'from_name' => 'Neconano',
   ),
   'feature' => 
